@@ -1,0 +1,24 @@
+extends layouts/application
+
+append config
+  - var PageTitle = 'Nitro'
+  - var PageDescription = 'Supercharged static site generator'
+  - var PagePath = '/'
+  - var PageImage = ''  // Recommended 1200 x 630
+
+block content
+  .mdl-grid
+    .mdl-cell.mdl-cell--2-col.mdl-cell--hide-tablet.mdl-cell--hide-phone
+
+    .mdl-cell.mdl-cell--8-col.mdl-color-text--grey-800
+      h1 Hello!
+      p Paragraph
+      button#button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent Manually Load Async Module
+      p(data-module='Highlight') An auto-loaded async module highlighted this!
+
+      :marked
+        # Markdown
+
+      each item in socialLinks
+        a(class='mdl-button mdl-js-button mdl-js-ripple-effect', href='#{item.url}')
+          span( class="fa fa-#{item.id}" ) #{item.title}

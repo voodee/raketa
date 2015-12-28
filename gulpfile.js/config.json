@@ -13,12 +13,14 @@
 
     "static": {
       "src": "static",
-      "dest": "./"
+      "dest": "./",
+      "extensions": ["ico", "txt", "xml"],
+      "hidden": "htaccess"
     },
 
     "js": {
       "src": "javascripts",
-      "dest": "javascripts",
+      "dest": "js",
       "extractSharedJs": true,
       "entries": {
         "app": ["./app.js"],
@@ -29,25 +31,40 @@
 
     "css": {
       "src": "stylesheets",
-      "dest": "stylesheets",
+      "dest": "css",
       "autoprefixer": {
         "browsers": ["last 3 version"]
       },
       "sass": {
         "indentedSyntax": true
       },
-      "extensions": ["sass", "scss", "css"]
+      "extensions": ["styl", "css"]
     },
 
-    "html": {
-      "src": "html",
+    "haml": {
+      "src": "haml",
       "dest": "./",
       "dataFile": "data/global.json",
       "htmlmin": {
         "collapseWhitespace": true
       },
-      "extensions": ["html", "json"],
+      "extensions": ["haml", "json"],
       "excludeFolders": ["layouts", "shared", "macros", "data"]
+    },
+
+
+    "jade": {
+      "src": "jade",
+      "dest": "./",
+      "settings": {
+        "pretty": true
+      },
+      "dataFile": "config/data.json",
+      "htmlmin": {
+        "collapseWhitespace": true
+      },
+      "extensions": ["jade", "json"],
+      "excludeFolders": ["layouts", "config", "shared"]
     },
 
     "images": {

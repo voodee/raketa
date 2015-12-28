@@ -1,0 +1,139 @@
+block config
+  include ../config/config
+
+doctype html
+html(lang='en', prefix='og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#', class='#{noJS}')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title #{PageTitle}
+    meta(name='description', content='#{PageDescription}')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='google', value='notranslate')
+    link( rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"   )
+    link( rel="stylesheet", href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css" )
+    script( src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js" )
+    link( rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" )
+
+    link(rel='stylesheet', href='/css/main.css')
+
+    if App
+      meta(name='apple-mobile-web-app-title', content='#{SiteName}')
+      meta(name='apple-mobile-web-app-capable', content='#{AppCapable}')
+      meta(name='apple-mobile-web-app-status-bar-style', content='#{AppBar}')
+      link(rel='apple-touch-icon', sizes='76x76', href='assets/img/favicon@76.png')
+      link(rel='apple-touch-icon', sizes='120x120', href='assets/img/favicon@120.png')
+      link(rel='apple-touch-icon', sizes='152x152', href='assets/img/favicon@152.png')
+      link(rel='apple-touch-icon', sizes='167x167', href='assets/img/favicon@167.png')
+      link(rel='apple-touch-icon', sizes='180x180', href='assets/img/favicon@180.png')
+
+      meta(name='mobile-web-app-capable', content='#{AppCapable}')
+      meta(name='theme-color', content='#{ThemeColor}')
+      link(rel='icon' sizes="192x192" href='assets/img/favicon@192.png')
+
+      meta(name='application-name', content='#{SiteName}')
+      meta(name='msapplication-TileColor', content='#{TileColor}')
+      meta(name='msapplication-square70x70logo', content='assets/img/favicon@70.png')
+      meta(name='msapplication-square150x150logo', content='assets/img/favicon@150.png')
+      meta(name='msapplication-square310x150logo', content='assets/img/favicon@310x150.png')
+      meta(name='msapplication-square310x310logo', content='assets/img/favicon@310.png')
+
+    if TwitterCard
+      meta(name='twitter:card', content='summary')
+      meta(name='twitter:site', content='#{TwitterHandle}')
+      meta(name='twitter:title', content='#{PageTitle}')
+      meta(name='twitter:description', content='#{PageDescription}')
+      meta(name='twitter:image', content='#{PageImage}')
+
+    if OpenGraph
+      meta(property='og:type', content='website')
+      meta(property='og:site_name', content='#{SiteName}')
+      meta(property='og:title', content='#{PageTitle}')
+      meta(property='og:description', content='#{PageDescription}')
+      link(property='og:image', content='#{PageImage}')
+      link(property='og:url', content='#{SiteURL + PagePath}')
+
+    if Schema_Organization
+      script(type='application/ld+json').
+        {
+          "@context": "http://schema.org",
+          "@type": "Organization",
+          "name" : "#{OrganizationName}",
+          "logo" : "#{OrganizationLogo}",
+          "url" : "#{SiteURL}",
+          "sameAs" :
+            [
+              "#{OrganizationFacebook}",
+              "#{OrganizationGithub}",
+              "#{OrganizationTwitter}"
+              ]
+          }
+
+    if Schema_WebSite
+      script(type='application/ld+json').
+        {
+          "@context": "http://schema.org",
+          "@type": "WebSite",
+          "url": "#{SiteURL}",
+          "name": "#{SiteName}",
+          "author":
+            { "@type": "Person",
+              "name": "#{AuthorName}",
+              "url": "#{AuthorURL}"
+              }
+          }
+
+    if Schema_WebPage
+      script(type='application/ld+json').
+        {
+          "@context": "http://schema.org",
+          "@type": "WebPage",
+          "url": "#{SiteURL + PagePath}",
+          "name": "#{PageTitle}",
+          "description": "#{PageDescription}",
+          "image": "#{PageImage}"
+          }
+
+    if Typekit
+      script.
+        (function(d) {
+          var config = {
+            kitId: '#{Typekit}',
+            scriptTimeout: 3000,
+            async: true
+          },
+          h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+
+    if GoogleFonts
+      link(href='//fonts.googleapis.com/css?family=' + '#{GoogleFonts}', rel='stylesheet', type='text/css')
+
+    if Modernizr
+      script(src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js')
+
+  body
+    // if lt IE 10 <p class='outdatedBrowser'> You are using an strong outdated browser. Please <a href='http://outdatedbrowser.com/' class='outdatedBrowser-link'>upgrade your browser</a> to improve your experience.
+    .mdl-layout
+      if Header
+        include ../shared/_header
+
+      main.mdl-layout__content
+        block content
+
+
+
+      if Footer
+        include ../shared/_footer
+    
+
+    script(src='js/shared.js')
+    script(src='js/app.js')
+
+    if GoogleAnalytics
+      script.
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','#{GoogleAnalytics}','auto');ga('send','pageview');

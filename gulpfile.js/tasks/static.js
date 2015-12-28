@@ -3,8 +3,11 @@ var changed = require('gulp-changed')
 var gulp    = require('gulp')
 var path    = require('path')
 
+var hidden = path.normalize('**/.' + config.tasks.static.hidden)
+
 var paths = {
-  src: path.join(config.root.src, config.tasks.static.src, '/**'),
+  src: [path.join(config.root.src, config.tasks.static.src, '/**'),
+        path.join(config.root.src, config.tasks.static.src, hidden)],
   dest: path.join(config.root.dest, config.tasks.static.dest)
 }
 

@@ -1,0 +1,13 @@
+extends layouts/application
+
+append config
+  - var PageTitle = 'Ooops! | Page Not Found'
+  - var PageDescription = 'Page not found'
+  - var PagePath = '/404'
+  - var Footer = false
+
+block content
+  h1 Page not found
+  p Sorry, but the page you were trying to view does not exist.
+
+//- IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx
