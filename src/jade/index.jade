@@ -5,20 +5,183 @@ append config
   - var PageDescription = 'Supercharged static site generator'
   - var PagePath = '/'
   - var PageImage = ''  // Recommended 1200 x 630
+  - var Header = false
+  - var Footer = false
 
 block content
-  .mdl-grid
-    .mdl-cell.mdl-cell--2-col.mdl-cell--hide-tablet.mdl-cell--hide-phone
+  .mdl-grid.grid
+    .mdl-cell.mdl-cell--3-col.mdl-cell--8-col-tablet.mdl-cell--12-col-phone.item.item--desc
+      p.mdl-typography--display-3
+        //- | Мы
+        //- span.text--red  помогаем
+        //- br
+        //- span.text--red бизнесу
+        //- br
+        //- | в интернете
+        | Мы 
+        span.text--red помогаем
+        |  
+        span.text--red бизнесу
+        |  в интернете
 
-    .mdl-cell.mdl-cell--8-col.mdl-color-text--grey-800
-      h1 Hello!
-      p Paragraph
-      button#button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent Manually Load Async Module
-      p(data-module='Highlight') An auto-loaded async module highlighted this!
+      
+    a.item.mdl-cell.mdl-cell--6-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#' )
+      video(autoplay='', loop=true, muted=true)
+        source(src='images/portfolio/render-video/video.webm', type='video/webm')
+        source(src='images/portfolio/render-video/video.mp4', type='video/mp4')
+      .item-text.mdl-color-text--grey-800
+        h2.mdl-typography--display-1 voodee.ru
+        span.item-text--headline.mdl-typography--headline Видео-презентация нового проекта
 
-      :marked
-        # Markdown
+    a.item.mdl-cell.mdl-cell--3-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#', style='background-image: url("images/portfolio/makeupdays/title.png"); background-size: contain;' )
+      .item-text.mdl-color-text--grey-800
+        h2.mdl-typography--display-1 MakeUpDays
+        span.item-text--headline.mdl-typography--headline Ежегодный фестиваль макияжа и грима
 
-      each item in socialLinks
-        a(class='mdl-button mdl-js-button mdl-js-ripple-effect', href='#{item.url}')
-          span( class="fa fa-#{item.id}" ) #{item.title}
+
+    a.item.item--height-double.mdl-cell.mdl-cell--3-col.mdl-cell--6-col-tablet.mdl-cell--12-col-phone( href='#', style='background-image: url("images/portfolio/voodee_cart/title.jpg")' )
+      .item-text.mdl-color-text--grey-800
+        h2.mdl-typography--display-1 Визитная карточка
+        span.item-text--headline.mdl-typography--headline Концепт креативной визитной карты
+
+
+    .item-grid.mdl-cell.mdl-cell--9-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone.mdl-grid
+
+      a.item.mdl-cell.mdl-cell--4-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#', style='background-image: url("images/portfolio/mechet/title.jpg"); background-size: contain;' )
+        .item-text.mdl-color-text--grey-800
+          h2.mdl-typography--display-1 Мобильная Мечеть
+          span.item-text--headline.mdl-typography--headline Мечеть на колесах, которая сама приедет к вам
+
+      a.item.mdl-cell.mdl-cell--8-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#', style='background-image: url("images/portfolio/creativeboard/creativeboard4.jpg")' )
+        .item-text.mdl-color-text--grey-800
+          h2.mdl-typography--display-1 Creative Board
+          span.item-text--headline.mdl-typography--headline Пространство для креативных людей
+
+      a.item.mdl-cell.mdl-cell--4-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#', style='background-image: url("images/portfolio/geobur/geobur3.jpg")' )
+        .item-text.mdl-color-text--grey-800
+          h2.mdl-typography--display-1 ГеоДриллинг
+          span.item-text--headline.mdl-typography--headline Инженерные изыскания для строительства
+
+
+      a.item.mdl-cell.mdl-cell--8-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#', style='background-image: url("images/portfolio/gramax/gramax2.jpg")' )
+        .item-text.mdl-color-text--grey-800
+          h2.mdl-typography--display-1 Gramax
+          span.item-text--headline.mdl-typography--headline Интернет-магазин всякой интересной всячины
+
+
+    a.item.mdl-cell.mdl-cell--6-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#', style='background-image: url("images/portfolio/amritamed/amritamed3.jpg");' )
+      .item-text.mdl-color-text--grey-800
+        h2.mdl-typography--display-1 Амрита & Мадья
+        span.item-text--headline.mdl-typography--headline Оптовая компания по продаже натуральных Индийских товаров
+
+
+    a.item.mdl-cell.mdl-cell--3-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#', style='background-image: url("images/portfolio/42re/42re.jpg"); background-size: contain;' )
+      .item-text.mdl-color-text--grey-800
+        h2.mdl-typography--display-1 42re
+        span.item-text--headline.mdl-typography--headline Агентсво - консультант по недвижимости
+
+    a.item.mdl-cell.mdl-cell--3-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#', style='background-image: url("images/portfolio/coffee61/coffee61.jpg")' )
+      .item-text.mdl-color-text--grey-800
+        h2.mdl-typography--display-1 Coffee61
+        span.item-text--headline.mdl-typography--headline Интернет-магазин кофе и кофемашин
+
+      
+    a.item.mdl-cell.mdl-cell--3-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#', style='background-image: url("images/portfolio/perec/title.jpg")' )
+      .item-text.mdl-color-text--grey-800
+        h2.mdl-typography--display-1 Перец!
+        span.item-text--headline.mdl-typography--headline Оптовая продажа перца
+
+    a.item.mdl-cell.mdl-cell--3-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#', style='background-image: url("images/portfolio/fotoadress/title.jpg");' )
+      .item-text.mdl-color-text--grey-800
+        h2.mdl-typography--display-1 ФотоАдресс
+        span.item-text--headline.mdl-typography--headline Удобный фотопортал по продаже и аренде недвижимости в России
+
+
+    a.item.mdl-cell.mdl-cell--6-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#', style='background-image: url("images/portfolio/gallery/title.jpg")'  )
+      .item-text.mdl-color-text--grey-800
+        h2.mdl-typography--display-1 DI Gallery
+        span.item-text--headline.mdl-typography--headline Экспериментальный проект, зиждущийся на технологиях html5 и css3 
+
+
+
+      
+
+
+
+      
+    //- a.item.mdl-cell.mdl-cell--3-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#' )
+    //-   img( src='images/portfolio/coffee61_arenda/title.png' )
+    //-   div.item-text
+    //-     span Menu by Simon Jensen
+      
+    //- a.item.mdl-cell.mdl-cell--3-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#' )
+    //-   img( src='images/portfolio/motorera/title.png' )
+    //-   div.item-text
+    //-     span Menu by Simon Jensen
+      
+      
+      
+    //- a.item.mdl-cell.mdl-cell--3-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#' )
+    //-   img( src='images/portfolio/voodee/title.jpg' )
+    //-   div.item-text.mdl-color-text--grey-800
+    //-     h2.mdl-typography--display-1 VooDee
+    //-     span.item-text--headline.mdl-typography--headline Портфолио веб-разработчика
+      
+      
+    
+
+
+    //- a.item.mdl-cell.mdl-cell--6-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#', style='background-image: url("images/portfolio/akrilian/title.jpg")' )
+    //-   .item-text.mdl-color-text--grey-800
+    //-     h2.mdl-typography--display-1 Акрилиан Студио
+    //-     span.item-text--headline.mdl-typography--headline Изготовление изделий из искусственного камня
+
+    //- a.item.mdl-cell.mdl-cell--12-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#' )
+    //-   img( src='images/portfolio/parfum/title.png' )
+    //-   div.item-text
+    //-     span Menu by Simon Jensen
+      
+    //- a.item.mdl-cell.mdl-cell--3-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#', style='background-image: url("images/portfolio/fotoadress/fa2.jpg"); background-position: 0;' )
+    //-   .item-text.mdl-color-text--grey-800
+    //-     h2.mdl-typography--display-1 ФотоАдресс
+    //-     span.item-text--headline.mdl-typography--headline Удобный фотопортал по продаже и аренде недвижимости в России
+      
+    //- a.item.mdl-cell.mdl-cell--3-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#', style='background-image: url("images/portfolio/fotoadress/title.jpg");' )
+    //-   .item-text.mdl-color-text--grey-800
+    //-     h2.mdl-typography--display-1 ФотоАдресс
+    //-     span.item-text--headline.mdl-typography--headline Удобный фотопортал по продаже и аренде недвижимости в России
+
+    //- a.item.mdl-cell.mdl-cell--3-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#', style='background-image: url("images/portfolio/fotoadress/fa3.jpg"); background-size: initial;' )
+    //-   .item-text.mdl-color-text--grey-800
+    //-     h2.mdl-typography--display-1 ФотоАдресс
+    //-     span.item-text--headline.mdl-typography--headline Удобный фотопортал по продаже и аренде недвижимости в России
+    
+    //- a.item.mdl-cell.mdl-cell--6-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#' )
+    //-   img( src='images/portfolio/lp_win/title.png' )
+    //-   div.item-text
+    //-     span Menu by Simon Jensen
+
+    //- a.item.mdl-cell.mdl-cell--6-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#', style='background-image: url("images/portfolio/fotoadress/fa2.jpg"); background-position: 0;' )
+    //-   .item-text.mdl-color-text--grey-800
+    //-     h2.mdl-typography--display-1 ФотоАдресс
+    //-     span.item-text--headline.mdl-typography--headline Удобный фотопортал по продаже и аренде недвижимости в России
+  
+
+  .mdl-typography--text-center
+    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.button--color-red
+      | Перейти в портфолио
+
+
+  section.section.section__products
+    .section-title
+      h2.section-title__h2.mdl-typography--display-3 
+        span Наши продукты
+      p.mdl-typography--headline.mdl-color-text--grey-800 Мы любим своё дело: думать, рисовать, программировать. Разрабатывать качественный софт. Мы выпустили несколько тиражных проектов, приносящих непоправимую пользу. Пробуйте. Наслаждайтесь. Приходите за добавкой ;)
+
+
+
+    .mdl-grid
+      a.item.mdl-cell.mdl-cell--4-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone( href='#', style='background-image: url("images/products/badapi/badapi.jpg")' )
+        .item-text.mdl-color-text--grey-800
+          h2.mdl-typography--display-1 Badapi
+          span.item-text--headline.mdl-typography--headline Ежегодный фестиваль макияжа и грима

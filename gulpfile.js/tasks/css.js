@@ -24,7 +24,8 @@ var cssTask = function () {
   return gulp.src(paths.src)
     .pipe(sourcemaps.init())
     .pipe(stylus({
-      use: [nib(), bootstrap()]
+      use: [nib()],
+      'include css': true
       //compress: true
     }))
     .on('error', handleErrors)

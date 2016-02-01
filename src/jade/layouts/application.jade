@@ -10,10 +10,8 @@ html(lang='en', prefix='og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#', class='
     meta(name='description', content='#{PageDescription}')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(name='google', value='notranslate')
-    link( rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"   )
-    link( rel="stylesheet", href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css" )
-    script( src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js" )
-    link( rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" )
+    link( rel="stylesheet", href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" )
+    link( rel="stylesheet", href="//fonts.googleapis.com/icon?family=Material+Icons" )
 
     link(rel='stylesheet', href='/css/main.css')
 
@@ -113,10 +111,12 @@ html(lang='en', prefix='og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#', class='
 
   body
     // if lt IE 10 <p class='outdatedBrowser'> You are using an strong outdated browser. Please <a href='http://outdatedbrowser.com/' class='outdatedBrowser-link'>upgrade your browser</a> to improve your experience.
-    .mdl-layout
+    .mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer
       if Header
         include ../shared/_header
 
+
+      include ../shared/_sidebar
       main.mdl-layout__content
         block content
 
@@ -125,7 +125,8 @@ html(lang='en', prefix='og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#', class='
       if Footer
         include ../shared/_footer
     
-
+    script(src='//code.jquery.com/jquery-2.2.0.min.js')
+    script(src='//storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js')
     script(src='js/shared.js')
     script(src='js/app.js')
 

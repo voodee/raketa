@@ -1,22 +1,24 @@
 
-import './asyncModules'
-import exclaimify from './exclaimify'
+  // const tag = $('video')
+  // const play = () => video.play();
+  // tag.on("mount", () => window.addEventListener("load", play));
+  // tag.on("unmount", () => window.removeEventListener("load", play));
 
-const button = document.getElementById('button')
+$( window ).load( () => {
+  $( 'video' ).each( (i, el) => {
 
-const alertAsyncMessage = function() {
-  // CommonJS async syntax webpack magic
-  require.ensure([], function() {
-    const message = require("./asyncMessage")
-    alert(exclaimify(message))
+    $(el).get(0).play()
+
   })
-}
+})
 
-console.log(`
-  asset references like this one:
-    images/gulp.png
-  get updated in js too!`)
+// import './lib/jquery.isotope.perfectmasonry'
+import './lib/jquery.hoverdir'
 
-button.addEventListener('click', alertAsyncMessage)
+$(document).ready( () => {
 
-
+  $('.item').each( (i, el) => { 
+    $(el).hoverdir()
+  })
+  
+})  
